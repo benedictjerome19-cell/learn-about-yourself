@@ -1,0 +1,13 @@
+{
+  "name": "journalmind",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node start.js",
+    "dev": "node start.js",
+    "build": "cd client && npm run build",
+    "prod": "npm run build && cd server && npm start",
+    "test": "cd server && npm test",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install"
+  }
+}

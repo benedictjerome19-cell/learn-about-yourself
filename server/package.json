@@ -1,0 +1,20 @@
+{
+  "name": "journalmind-server",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "test": "node --test --test-concurrency=1 test/api.test.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@simplewebauthn/server": "^10.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^18.0.6",
+    "express": "^4.19.2",
+    "node-cron": "^3.0.3",
+    "pdfkit": "^0.15.2",
+    "uuid": "^9.0.1"
+  }
+}
