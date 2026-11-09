@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { authenticate, passkeyLogin, passkeyRegister } from '../api';
+import { useEffect, useState } from 'react';
+import { api, authenticate, passkeyLogin, passkeyRegister } from '../api';
 import Mindscape from './Mindscape';
 
 export default function Login({ onAuth, dark }) {
@@ -7,7 +7,11 @@ export default function Login({ onAuth, dark }) {
   const [f, setF]         = useState({ name: '', email: '', password: '' });
   const [err, setErr]     = useState('');
   const [busy, setBusy]   = useState('');
+  const [signup, setSignup] = useState(true);
   const set = (k) => (e) => setF({ ...f, [k]: e.target.value });
+
+  // The server may have new sign-ups closed (public deployments)
+  useEffect(() => { api('/auth/config').then((c) => setSignup(c.signup)).catch(() => {}); }, []);
   const isLogin = mode === 'login';
   const switchTo = (m) => { setMode(m); setErr(''); };
 
@@ -34,10 +38,10 @@ export default function Login({ onAuth, dark }) {
           <p className="mt-2 text-sm text-muted">A private place to write, record and reflect.</p>
         </div>
 
-        <div className="seg mb-4" role="tablist">
+        {signup && <div className="seg mb-4" role="tablist">
           <button type="button" role="tab" aria-selected={isLogin} onClick={() => switchTo('login')}>Sign in</button>
           <button type="button" role="tab" aria-selected={!isLogin} onClick={() => switchTo('register')}>Create account</button>
-        </div>
+        </div>}
 
         <form onSubmit={submit} className="card space-y-4" noValidate={false}>
           {!isLogin && (

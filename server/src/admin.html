@@ -1,0 +1,18 @@
+<!doctype html>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JournalMind database</title>
+<style>
+  body{font:14px system-ui,sans-serif;margin:20px;background:#f3f5f9;color:#1c2433}
+  nav{margin:12px 0;display:flex;gap:8px;flex-wrap:wrap}
+  button{padding:6px 12px;border:1px solid #c9d1e3;border-radius:8px;background:#fff;cursor:pointer}
+  button:disabled{background:#4466f2;color:#fff;border-color:#4466f2}
+  table{border-collapse:collapse;background:#fff}
+  th,td{border:1px solid #dde3f0;padding:6px 8px;text-align:left;vertical-align:top;max-width:360px;word-break:break-word}
+  th{background:#eef2ff;position:sticky;top:0}
+</style>
+<h1>JournalMind database</h1>
+<p>Reads <code>server/data.json</code>. Refreshes every 3 seconds. Newest rows first.</p>
+<nav id="tabs"></nav>
+<div style="overflow:auto"><table id="t"></table></div>
+<p id="empty"></p>
+<script src="/admin/admin.js"></script>

@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "node --watch src/index.js",
     "start": "node src/index.js",
-    "test": "node --test --test-concurrency=1 test/api.test.js"
+    "test": "node --test --test-concurrency=1 test/api.test.js test/deploy.test.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
